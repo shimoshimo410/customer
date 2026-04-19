@@ -1,0 +1,28 @@
+[
+  {
+    "id": "demo",
+    "displayName": "デモ購入者",
+    "note": "初期表示用",
+    "visibleItemIds": [
+      "growlithe-raw-001",
+      "growlithe-psa-001"
+    ]
+  },
+  {
+    "id": "buyer-tanaka",
+    "displayName": "田中さま",
+    "note": "追加購入あり",
+    "visibleItemIds": [
+      "growlithe-raw-001",
+      "growlithe-psa-001"
+    ]
+  },
+  {
+    "id": "buyer-sato",
+    "displayName": "佐藤さま",
+    "note": "通常カードのみ",
+    "visibleItemIds": [
+      "growlithe-raw-001"
+    ]
+  }
+]

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カードビューアー</title>
+  <link rel="stylesheet" href="./assets/css/site.css">
+</head>
+<body>
+  <div class="viewer-shell">
+    <div class="viewer-topbar">
+      <a id="backLink" class="back-link" href="./index.html">← 一覧に戻る</a>
+      <div class="chip-row">
+        <span class="chip">閲覧専用</span>
+        <span class="chip">追加は開発者側で反映</span>
+      </div>
+    </div>
+
+    <div class="viewer-main">
+      <section class="viewer-canvas-panel">
+        <canvas id="scene"></canvas>
+        <div class="viewer-overlay">
+          <div class="viewer-title">
+            <h1 id="viewerHeading">読み込み中...</h1>
+            <p id="viewerSubheading"></p>
+          </div>
+
+          <div class="bottom-controls">
+            <div class="button-row">
+              <button id="autoRotateButton" class="control-button" type="button">⏸ 自動回転</button>
+              <button id="flipButton" class="control-button" type="button">⇄ 裏表</button>
+            </div>
+            <div class="slider-panel">
+              <label for="thicknessSlider">厚み</label>
+              <input id="thicknessSlider" type="range" min="10" max="120" value="26" step="1">
+              <span id="thicknessValue">0.026</span>
+              <label for="edgeColor">縁色</label>
+              <input id="edgeColor" type="color" value="#ffffff">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside id="infoPanel" class="info-panel"></aside>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="./assets/js/app.js"></script>
+  <script src="./assets/js/viewer.js"></script>
+</body>
+</html>

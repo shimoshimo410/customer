@@ -1,0 +1,36 @@
+[
+  {
+    "id": "growlithe-raw-001",
+    "title": "ガーディ ②",
+    "titleEn": "Growlithe",
+    "category": "raw",
+    "cardLabel": "LV.16 / HP50 / No.058 / 1996",
+    "setName": "旧裏サンプルカード",
+    "description": "通常カード向けの表示例です。棚風のサムネから開いて、3D風に回転して見せることができます。",
+    "frontImage": "./assets/images/growlithe_front.jpg",
+    "backImage": "./assets/images/growlithe_back.jpg",
+    "sortOrder": 20,
+    "tags": [
+      "旧裏",
+      "通常カード",
+      "サンプル"
+    ]
+  },
+  {
+    "id": "growlithe-psa-001",
+    "title": "ガーディ ② PSA風",
+    "titleEn": "Growlithe PSA Style",
+    "category": "psa",
+    "cardLabel": "PSA表示サンプル / 旧裏 / 1996",
+    "setName": "PSA向け表示サンプル",
+    "description": "PSAスラブ風の厚みとラベルをつけた表示例です。実際はカード画像を別に差し替えるだけで追加できます。",
+    "frontImage": "./assets/images/growlithe_front.jpg",
+    "backImage": "./assets/images/growlithe_back.jpg",
+    "sortOrder": 30,
+    "tags": [
+      "PSA",
+      "スラブ",
+      "サンプル"
+    ]
+  }
+]
