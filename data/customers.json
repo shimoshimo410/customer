@@ -1,7 +1,7 @@
 [
   {
     "id": "demo",
-    "displayName": "デモ購入者",
+    "displayName": "購入者様",
     "note": "初期表示用",
     "visibleItemIds": [
       "growlithe-raw-001",
