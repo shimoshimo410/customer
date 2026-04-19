@@ -1,4 +1,3 @@
-
 (async () => {
   const { loadJson, getQueryParam, safeText, buildViewerLink } = window.BonusViewerApp;
   const canvas = document.getElementById('scene');
@@ -77,8 +76,8 @@
     renderer.outputEncoding = THREE.sRGBEncoding;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
-    camera.position.set(0, 0.02, 2.65);
+    const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+    camera.position.set(0, 0.02, 3.45);
 
     const ambient = new THREE.HemisphereLight(0xffffff, 0x334466, 1.1);
     scene.add(ambient);
@@ -101,50 +100,43 @@
     backTexture.encoding = THREE.sRGBEncoding;
 
     const isPsa = item.category === 'psa';
-    const W = 1.68;
+    const W = isPsa ? 1.42 : 1.34;
     const H = W * (88 / 63);
-    const D = isPsa ? 0.09 : 0.026;
+    const D = isPsa ? 0.05 : 0.02;
+
     const edgeMaterial = new THREE.MeshStandardMaterial({
       color: isPsa ? '#d9dde8' : '#ffffff',
-      roughness: isPsa ? 0.22 : 0.48,
-      metalness: 0.05,
-      transparent: true,
-      opacity: isPsa ? 0.88 : 1,
+      roughness: isPsa ? 0.3 : 0.48,
+      metalness: 0.03,
+      transparent: false,
+      opacity: 1,
     });
 
     const body = new THREE.Mesh(
       new THREE.BoxGeometry(W, H, D),
-      [edgeMaterial, edgeMaterial, edgeMaterial, edgeMaterial, new THREE.MeshBasicMaterial({ map: frontTexture }), new THREE.MeshBasicMaterial({ map: backTexture })]
+      [
+        edgeMaterial,
+        edgeMaterial,
+        edgeMaterial,
+        edgeMaterial,
+        new THREE.MeshBasicMaterial({ map: frontTexture }),
+        new THREE.MeshBasicMaterial({ map: backTexture })
+      ]
     );
     group.add(body);
-
-    if (isPsa) {
-      const label = new THREE.Mesh(
-        new THREE.BoxGeometry(W * 0.82, H * 0.1, D * 1.04),
-        new THREE.MeshStandardMaterial({ color: '#f4f5f8', roughness: 0.28, metalness: 0.03, opacity: 0.95, transparent: true })
-      );
-      label.position.set(0, H * 0.42, D * 0.03);
-      group.add(label);
-
-      const windowFrame = new THREE.Mesh(
-        new THREE.BoxGeometry(W * 0.86, H * 0.76, D * 1.02),
-        new THREE.MeshStandardMaterial({ color: '#eef2fa', roughness: 0.18, metalness: 0.02, opacity: 0.22, transparent: true })
-      );
-      windowFrame.position.set(0, -H * 0.07, D * 0.028);
-      group.add(windowFrame);
-    }
 
     const shadow = new THREE.Mesh(
       new THREE.CircleGeometry(0.78, 48),
       new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.16 })
     );
     shadow.rotation.x = -Math.PI / 2;
-    shadow.position.y = -1.44;
-    shadow.scale.set(1.35, 0.52, 1);
+    shadow.position.y = -1.22;
+    shadow.scale.set(1.12, 0.44, 1);
     scene.add(shadow);
 
-    group.rotation.x = -0.08;
-    group.rotation.y = 0.55;
+    group.rotation.x = -0.06;
+    group.rotation.y = 0.48;
+    group.scale.setScalar(isPsa ? 0.9 : 0.84);
 
     let autoRotate = true;
     let targetY = group.rotation.y;
@@ -168,7 +160,7 @@
       targetY += Math.PI;
     });
 
-    thicknessSlider.value = isPsa ? '90' : '26';
+    thicknessSlider.value = isPsa ? '50' : '20';
     thicknessValue.textContent = (Number(thicknessSlider.value) / 1000).toFixed(3);
     thicknessSlider.addEventListener('input', () => {
       const thickness = Number(thicknessSlider.value) / 1000;
