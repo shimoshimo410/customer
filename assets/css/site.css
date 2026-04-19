@@ -308,16 +308,23 @@ a {
 .viewer-canvas-panel,
 .info-panel {
   min-height: calc(100vh - 110px);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--line);
   border-radius: 24px;
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
 }
 
 .viewer-canvas-panel {
   position: relative;
   overflow: hidden;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.info-panel {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
 }
 
 #scene {
